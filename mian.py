@@ -44,14 +44,39 @@ def calc_question4_mark(questions4):
     return result
 
 
+def calc_question5_mark(questions5):
+    result = 0
+
+    for question in questions5:
+        left_dot = question.get_left_dot()
+        right_dot = question.get_right_dot()
+        user_left_dot = question.get_user_answer()[0]
+        user_right_dot = question.get_user_answer()[1]
+
+        if left_dot == user_left_dot and right_dot == user_right_dot:
+            result += 1
+        elif left_dot <= user_left_dot <= user_right_dot <= right_dot:
+            result += (user_right_dot - user_left_dot) / (right_dot - left_dot)
+        elif left_dot <= user_left_dot <= right_dot <= user_right_dot:
+            result += (right_dot - user_left_dot) / (right_dot - left_dot)
+        elif user_left_dot <= left_dot <= user_right_dot <= right_dot:
+            result += (user_right_dot - left_dot) / (right_dot - left_dot)
+        elif user_left_dot <= left_dot <= right_dot <= user_right_dot:
+            result += (right_dot - left_dot) / (user_right_dot - user_left_dot)
+        else:
+            result += -1
+
+    return result
+
+
 def main():
-    q1 = Question4("write pi", [1, 3])
+    q1 = Question5("write pi", [1, 3])
 
     root = Tk()
-    view = Question4View(q1, root)
+    view = Question5View(q1, root)
     view.show()
     root.mainloop()
 
-    print(calc_question4_mark([q1]))
+    print(calc_question5_mark([q1]))
 if __name__ == '__main__':
     main()

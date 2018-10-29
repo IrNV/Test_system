@@ -91,3 +91,29 @@ class Question4View:
     def answer(self, event):
         print(self.entry.get())
         self.quest_obj.set_user_answer(float(self.entry.get()))
+
+
+class Question5View:
+    def __init__(self, obj, root):
+        self.quest_obj = obj
+        self.root = root
+
+    def show(self):
+        label = Label(self.root, text=self.quest_obj.get_question()).pack()
+
+        self.entry_left = Entry(self.root)
+        self.entry_left.pack()
+
+        self.entry_right = Entry(self.root)
+        self.entry_right.pack()
+
+        button = Button(self.root, text="Підтвердити відповідь")
+        button.bind("<Button>", self.answer)
+
+        button.pack()
+
+    def answer(self, event):
+        print([float(self.entry_left.get()), float(self.entry_right.get())])
+        left_dot = float(self.entry_left.get())
+        right_dot = float(self.entry_right.get())
+        self.quest_obj.set_user_answer([left_dot, right_dot])

@@ -70,3 +70,7 @@ class Question4:
     def get_right_dot(self):
         return self.interval[1]
 
+
+class Question5(Question4):
+    def __init__(self, question, interval):
+        Question4.__init__(self, question, interval)

@@ -10,8 +10,8 @@ class Question1View:
     def show(self):
         Label(self.root, text=self.quest_obj.get_question()).pack()
 
-        rbutton1 = Radiobutton(self.root, text='YES', variable=self.radio_var, value="YES")
-        rbutton2 = Radiobutton(self.root, text='NO', variable=self.radio_var, value="NO")
+        rbutton1 = Radiobutton(self.root, text='Так', variable=self.radio_var, value="Так")
+        rbutton2 = Radiobutton(self.root, text='Ні', variable=self.radio_var, value="Ні")
         rbutton1.pack()
         rbutton2.pack()
 
@@ -79,9 +79,11 @@ class Question5View:
     def show(self):
         Label(self.root, text=self.quest_obj.get_question()).pack()
 
+        Label(self.root, text="Початок інтервалу").pack()
         self.entry_left = Entry(self.root)
         self.entry_left.pack()
 
+        Label(self.root, text="Кінець інтервалу").pack()
         self.entry_right = Entry(self.root)
         self.entry_right.pack()
 
@@ -100,9 +102,11 @@ class Question6View:
     def show(self):
         Label(self.root, text=self.quest_obj.get_question()).pack()
 
+        Label(self.root, text="Найбільш імовірне значення").pack()
         self.entry_left = Entry(self.root)
         self.entry_left.pack()
 
+        Label(self.root, text="Довжина півінтервалу").pack()
         self.entry_right = Entry(self.root)
         self.entry_right.pack()
 

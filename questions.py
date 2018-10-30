@@ -104,10 +104,10 @@ class Question5:
         self.result = 0
 
     def calc_question_mark(self):
-        left_dot = self.left_dot()
-        right_dot = self.right_dot()
-        user_left_dot = self.user_left_dot()
-        user_right_dot = self.user_right_dot()
+        left_dot = self.left_dot
+        right_dot = self.right_dot
+        user_left_dot = self.user_left_dot
+        user_right_dot = self.user_right_dot
 
         if left_dot == user_left_dot and right_dot == user_right_dot:
             self.result += 1

@@ -133,13 +133,29 @@ class Question6View:
         self.entry_right = Entry(self.root)
         self.entry_right.pack()
 
+    def answer(self, event):
+        print([float(self.entry_left.get()), float(self.entry_right.get())])
+        mode = float(self.entry_left.get())
+        interval = float(self.entry_right.get())
+        self.quest_obj.set_user_answer(mode, interval)
+
+
+class Question7View:
+    def __init__(self, obj, root):
+        self.quest_obj = obj
+        self.root = root
+
+    def show(self):
+        label = Label(self.root, text=self.quest_obj.get_question()).pack()
+
+        self.entry = Entry(self.root)
+        self.entry.pack()
+
         button = Button(self.root, text="Підтвердити відповідь")
         button.bind("<Button>", self.answer)
 
         button.pack()
 
     def answer(self, event):
-        print([float(self.entry_left.get()), float(self.entry_right.get())])
-        mode = float(self.entry_left.get())
-        interval = float(self.entry_right.get())
-        self.quest_obj.set_user_answer(mode, interval)
+        print(self.entry.get())
+        self.quest_obj.set_user_answer(self.entry.get())

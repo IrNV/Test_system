@@ -104,3 +104,19 @@ class Question6:
 
     def get_interval(self):
         return self.interval
+
+
+class Question7:
+    def __init__(self, question, data):
+        self.question = question
+        self.data = data
+        self.user_answer = ""
+
+    def set_user_answer(self, user_answer):
+        self.user_answer = user_answer
+
+    def get_user_answer(self):
+        return self.user_answer
+
+    def get_question(self):
+        return self.question

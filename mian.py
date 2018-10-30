@@ -108,14 +108,26 @@ def calc_question6_mark(questions6):
     return result
 
 
+def calc_question7_mark(questions7):
+    result = 0
+
+    for question in questions7:
+        if question.get_user_answer() in question.data:
+            result += question.data[question.get_user_answer()]
+        else:
+            result += -1
+
+    return result
+
+
 def main():
-    q1 = Question6("write pi", 2, 1)
+    q1 = Question7("write pi", {"1": 1, "2": 2})
 
     root = Tk()
-    view = Question6View(q1, root)
+    view = Question7View(q1, root)
     view.show()
     root.mainloop()
 
-    print(calc_question6_mark([q1]))
+    print(calc_question7_mark([q1]))
 if __name__ == '__main__':
     main()
